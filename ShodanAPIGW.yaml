@@ -1,0 +1,33 @@
+---
+swagger: "2.0"
+info:
+  version: "2022-01-08T18:48:05Z"
+  title: "ShodanAPIGW"
+host: "efy2zlow0h.execute-api.us-east-1.amazonaws.com"
+basePath: "/v1"
+schemes:
+- "https"
+paths:
+  /{shodan+}:
+    x-amazon-apigateway-any-method:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "shodan"
+        in: "path"
+        required: true
+        type: "string"
+      responses: {}
+      x-amazon-apigateway-integration:
+        httpMethod: "ANY"
+        uri: "https://api.shodan.io/{shodan}"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.path.shodan: "method.request.path.shodan"
+        passthroughBehavior: "when_no_match"
+        cacheNamespace: "u10m8s"
+        cacheKeyParameters:
+        - "method.request.path.shodan"
+        type: "http_proxy"

@@ -13,7 +13,7 @@ Login to your AWS account and go to [API Gateway](https://console.aws.amazon.com
 
 ![Choose an API type](ChooseProtocol.png)
 
-* Click the Actions button on the drop-down menu and select either Create Method or Create Resource based on your needs/implementation requirements. In this case, we will choose Create Resource as we plan to configure a [proxy resource](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-set-up-simple-proxy.html#api-gateway-proxy-resource%3Ficmpid=docs_apigateway_console) 
+* Click the Actions button on the drop-down menu and select either Create Method or Create Resource based on your needs/implementation requirements. In this case, we will choose Create Resource as we plan to configure a [proxy resource](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-set-up-simple-proxy.html#api-gateway-proxy-resource%3Ficmpid=docs_apigateway_console). 
 
 ![Choose an API type](Actions.png)
 
@@ -44,6 +44,16 @@ Then from another terminal shell
 
         while true; do curl -k  https://[AWS PROVIDE INVOKE URL]/test; done
 ![Choose an API type](rotate.png)
+
+## Example - [Shodan](https://www.shodan.io/)
+The following example utilizes an AWS API Gateway for making [Shodan](https://developer.shodan.io/api) REST calls via an imported ([json File](ShodanAPIGW.json) or [yaml file](ShodanAPIGW.yaml))
+1.  Select import under the "REST API" option on the "Choose an API type"
+2.  Deploy the API, in this case we selected [New Stage] for deployment stage and v1 for Stage name
+3.  The invoke URL is https://2o6r8qlhv8.execute-api.us-east-1.amazonaws.com/v1
+4.  One can call the Shodan API via the following example:
+
+        curl -X GET "https://2o6r8qlhv8.execute-api.us-east-1.amazonaws.com/v1/shodan/host/65.144.1.1?key=XYZ123"
+
 
 ## Additional Resources
 Using [AWS Lambda as a redirector](https://blog.xpnsec.com/aws-lambda-redirector/) for Cobalt Strike
