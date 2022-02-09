@@ -46,14 +46,13 @@ Then from another terminal shell
 ![Choose an API type](rotate.png)
 
 ## Example - [Shodan](https://www.shodan.io/)
-The following example utilizes an AWS API Gateway for making [Shodan](https://developer.shodan.io/api) REST calls via an imported ([json File](ShodanAPIGW.json) or [yaml file](ShodanAPIGW.yaml))
+The following example utilizes an AWS API Gateway for making [Shodan](https://developer.shodan.io/api) REST calls via an imported ([json file](ShodanAPIGW.json) or [yaml file](ShodanAPIGW.yaml))
 1.  Select import under the "REST API" option on the "Choose an API type"
 2.  Deploy the API, in this case we selected [New Stage] for deployment stage and v1 for Stage name
 3.  The invoke URL is https://2o6r8qlhv8.execute-api.us-east-1.amazonaws.com/v1
 4.  One can call the Shodan API via the following example:
 
         curl -X GET "https://2o6r8qlhv8.execute-api.us-east-1.amazonaws.com/v1/shodan/host/65.144.1.1?key=XYZ123"
-
 
 ## Additional Resources
 Using [AWS Lambda as a redirector](https://blog.xpnsec.com/aws-lambda-redirector/) for Cobalt Strike
