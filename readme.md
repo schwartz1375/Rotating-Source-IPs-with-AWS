@@ -25,11 +25,11 @@ Login to your AWS account and go to [API Gateway](https://console.aws.amazon.com
 
 ![Choose an API type](proxy.png)
 
-* Click the Actions button on the drop-down menu and select Deploy API.
+* Click the Actions button on the drop-down menu and select Deploy API.  Note if you need to spoof your source IP add the [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) header - see [OPSEC](#opsec) note. 
 
 ![Choose an API type](deploy.png)
 
-* On the Deploy API window, select "[New Stage" for Deployment stage and add a Stage Name followed by clicking Deploy.  Note if you need to spoof your source IP add the [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) header - see [OPSEC](#opsec) note. 
+* On the Deploy API window, select "[New Stage]" for Deployment stage and add a Stage Name followed by clicking Deploy.  
 
 ![Choose an API type](stage.png)
 
@@ -55,7 +55,8 @@ The following example utilizes an AWS API Gateway for making [Shodan](https://de
         curl -X GET "https://2o6r8qlhv8.execute-api.us-east-1.amazonaws.com/v1/shodan/host/65.144.1.1?key=XYZ123"
 
 ## OPSEC
-One may also choose to add a HTTP under "integration Requests" such as "X-Forwarded-For” with a valid IP in single quote (e.g., ‘4.4.4.4’) for the Mapped from field.  
+One may also choose to add a HTTP under "integration Requests" such as "X-Forwarded-For” with a valid IP in single quote (e.g., ‘4.4.4.4’) for the Mapped from field.
+![X-Forwarded-For](X-Forwarded-For.png)
 
 ## Additional Resources
 Using [AWS Lambda as a redirector](https://blog.xpnsec.com/aws-lambda-redirector/) for Cobalt Strike
