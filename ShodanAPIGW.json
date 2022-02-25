@@ -28,6 +28,7 @@
             }
           },
           "requestParameters" : {
+            "integration.request.header.X-Forwarded-For" : "'4.4.4.4'",
             "integration.request.path.shodan" : "method.request.path.shodan"
           },
           "passthroughBehavior" : "when_no_match",
